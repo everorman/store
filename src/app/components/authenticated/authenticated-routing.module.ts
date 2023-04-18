@@ -4,6 +4,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
+    path: 'product',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+  },
+  {
     path: '',
     children: [
       {
@@ -15,11 +20,6 @@ const routes: Routes = [
         redirectTo: 'dashboard',
       },
     ],
-  },
-  {
-    path: 'product',
-    loadChildren: () =>
-      import('./product/product.module').then((m) => m.ProductModule),
   },
 ];
 

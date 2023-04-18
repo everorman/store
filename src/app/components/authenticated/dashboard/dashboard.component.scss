@@ -39,4 +39,21 @@
       width: 100%;
     }
   }
+
+  mat-card.pointer:hover {
+    cursor: pointer;
+  }
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    .card-title {
+      font-size: 30px;
+      color: rgb(44, 44, 44);
+    }
+    .card-number {
+      font-size: 40px;
+    }
+  }
 }

@@ -7,12 +7,12 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'product',
+        path: 'list',
         component: ProductListComponent,
       },
       {
         path: '**',
-        redirectTo: 'product',
+        redirectTo: 'list',
       },
     ],
   },
