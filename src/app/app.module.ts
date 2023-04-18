@@ -9,8 +9,18 @@ import { AppComponent } from './app.component';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { CustomMaterialModule } from './core/material.module';
+import { LoadingComponent } from './components/loading/loading.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { LoadingService } from './components/loading/loading.service';
+import { MessagesService } from './components/messages/messages.service';
 @NgModule({
-  declarations: [AppComponent, SigninComponent, NavTopComponent],
+  declarations: [
+    AppComponent,
+    SigninComponent,
+    NavTopComponent,
+    LoadingComponent,
+    MessagesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,7 +30,7 @@ import { CustomMaterialModule } from './core/material.module';
     CustomMaterialModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [LoadingService, MessagesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
