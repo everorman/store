@@ -18,4 +18,14 @@ export class ProductService {
         })
       );
   }
+
+  getDetail(id: number) {
+    return this.http
+      .get<Product>(`https://api.escuelajs.co/api/v1/products/${id}`)
+      .pipe(
+        tap((res) => {
+          console.log(res);
+        })
+      );
+  }
 }

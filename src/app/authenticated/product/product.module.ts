@@ -7,6 +7,8 @@ import { LoadingService } from '../../shared/loading/loading.service';
 import { MessagesService } from '../../shared/messages/messages.service';
 import { ProductService } from './services/product.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,8 +16,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CustomMaterialModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  declarations: [ProductListComponent],
+  declarations: [ProductListComponent, ProductDetailComponent],
   providers: [LoadingService, MessagesService, ProductService],
 })
 export class ProductModule {}

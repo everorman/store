@@ -1,25 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, tap } from 'rxjs';
-import { Product } from '../services/product.model';
-import { ProductService } from '../services/product.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { ProductDataSource } from '../services/product.datasource';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading/loading.service';
+import { ProductDataSource } from '../services/product.datasource';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private router: Router
   ) {}
 
   displayedColumns: string[] = ['id', 'title', 'price', 'marca', 'model'];
-  data: Product[] = [];
-  dataSubscriber!: Subscription;
   dataSource!: ProductDataSource;
 
   ngOnInit(): void {
@@ -30,7 +27,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.dataSource.loadProduct();
   }
 
-  ngOnDestroy(): void {
-    this.dataSubscriber.unsubscribe();
+  showDetail(id: string) {
+    this.router.navigate(['/app/product/detail', id]);
+    console.log(id);
   }
 }
