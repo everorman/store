@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SigninComponent } from './components/signin/signin.component';
+import { SigninComponent } from './shared/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () =>
-      import('./components/authenticated/authenticated.module').then(
+      import('./authenticated/authenticated.module').then(
         (m) => m.AuthenticatedModule
       ),
   },

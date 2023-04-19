@@ -6,13 +6,13 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavTopComponent } from './components/nav-top/nav-top.component';
-import { SigninComponent } from './components/signin/signin.component';
+import { NavTopComponent } from './shared/nav-top/nav-top.component';
+import { SigninComponent } from './shared/signin/signin.component';
 import { CustomMaterialModule } from './core/material.module';
-import { LoadingComponent } from './components/loading/loading.component';
-import { MessagesComponent } from './components/messages/messages.component';
-import { LoadingService } from './components/loading/loading.service';
-import { MessagesService } from './components/messages/messages.service';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { LoadingService } from './shared/loading/loading.service';
+import { MessagesService } from './shared/messages/messages.service';
 @NgModule({
   declarations: [
     AppComponent,

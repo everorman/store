@@ -4,7 +4,7 @@ import { Product } from '../services/product.model';
 import { ProductService } from '../services/product.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductDataSource } from '../services/product.datasource';
-import { LoadingService } from 'src/app/components/loading/loading.service';
+import { LoadingService } from 'src/app/shared/loading/loading.service';
 
 @Component({
   selector: 'app-product-list',

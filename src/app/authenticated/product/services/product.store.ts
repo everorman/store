@@ -4,8 +4,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 
 import { Product } from './product.model';
-import { LoadingService } from '../../../loading/loading.service';
-import { MessagesService } from '../../../messages/messages.service';
+import { LoadingService } from '../../../shared/loading/loading.service';
+import { MessagesService } from '../../../shared/messages/messages.service';
 
 @Injectable({
   providedIn: 'root',
