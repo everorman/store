@@ -1,0 +1,33 @@
+<loading></loading>
+<messages></messages>
+<div class="basic-wrapper">
+  <form [formGroup]="productForm">
+    <mat-form-field>
+      <input matInput placeholder="Código" formControlName="productCode" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Precio compra"
+        formControlName="purchasePrice"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Precio venta" formControlName="soldPrice" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Marca" formControlName="brand" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Modelo" formControlName="model" />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="save()" color="primary">Guardar</button>
+</div>

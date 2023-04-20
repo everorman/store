@@ -31,7 +31,7 @@ export class CoursesStore {
       }),
       catchError((err) => {
         const message = 'Could not load courses';
-        this.messages.showErrors(message);
+        this.messages.showMessage(message);
         console.log(message, err);
         return throwError(err);
       })

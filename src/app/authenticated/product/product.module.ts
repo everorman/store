@@ -9,6 +9,7 @@ import { ProductService } from './services/product.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductAddComponent } from './product-add/product-add.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [ProductListComponent, ProductDetailComponent],
+  declarations: [ProductListComponent, ProductDetailComponent, ProductAddComponent],
   providers: [LoadingService, MessagesService, ProductService],
 })
 export class ProductModule {}

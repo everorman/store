@@ -16,7 +16,15 @@ export class ProductListComponent implements OnInit {
     private router: Router
   ) {}
 
-  displayedColumns: string[] = ['id', 'title', 'price', 'marca', 'model'];
+  displayedColumns: string[] = [
+    'id',
+    'productCode',
+    'title',
+    'purchasePrice',
+    'salePrice',
+    'brand',
+    'model',
+  ];
   dataSource!: ProductDataSource;
 
   ngOnInit(): void {

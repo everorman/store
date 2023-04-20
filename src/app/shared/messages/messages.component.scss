@@ -1,0 +1,24 @@
+.messages-container {
+  display: flex;
+  padding: 20px;
+  font-family: Roboto;
+  position: relative;
+
+  &.error {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+  }
+  &.success {
+    color: green;
+    background-color: #d2fbd7;
+    border: 1px solid #8dcd92;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}

@@ -1,8 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Product } from './product.model';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import {
+  Firestore,
+  collection,
+  addDoc,
+  collectionData,
+} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -33,5 +38,12 @@ export class ProductService {
   addProduct(product: Product) {
     const productRef = collection(this.firestore, 'product');
     return addDoc(productRef, product);
+  }
+
+  getAll(): Observable<Product[]> {
+    const productRef = collection(this.firestore, 'product');
+    return collectionData(productRef, { idField: 'id' }) as Observable<
+      Product[]
+    >;
   }
 }

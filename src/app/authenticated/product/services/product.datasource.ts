@@ -5,7 +5,7 @@ import { LoadingService } from 'src/app/shared/loading/loading.service';
 import { BehaviorSubject, Observable, catchError, finalize, of } from 'rxjs';
 
 export class ProductDataSource implements DataSource<Product> {
-  private lessonsSubject = new BehaviorSubject<Product[]>([]);
+  private productSubject = new BehaviorSubject<Product[]>([]);
 
   constructor(
     private productService: ProductService,
@@ -13,23 +13,17 @@ export class ProductDataSource implements DataSource<Product> {
   ) {}
 
   connect(collectionViewer: CollectionViewer): Observable<Product[]> {
-    return this.lessonsSubject.asObservable();
+    return this.productSubject.asObservable();
   }
 
   disconnect(collectionViewer: CollectionViewer): void {
-    this.lessonsSubject.complete();
+    this.productSubject.complete();
     this.loadingService.loadingOff();
   }
 
   loadProduct() {
-    this.loadingService.loadingOn();
-
     this.productService
-      .getProducts()
-      .pipe(
-        catchError(() => of([])),
-        finalize(() => this.loadingService.loadingOff())
-      )
-      .subscribe((products) => this.lessonsSubject.next(products));
+      .getAll()
+      .subscribe((products) => this.productSubject.next(products));
   }
 }
