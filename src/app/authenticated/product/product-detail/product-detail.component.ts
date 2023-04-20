@@ -25,11 +25,13 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.productForm = this.formBuilder.group({
-      id: ['', Validators.required],
       title: ['', Validators.required],
-      price: ['', Validators.required],
-      marca: [''],
+      stock: ['', Validators.required],
+      purchasePrice: ['', Validators.required],
+      soldPrice: ['', Validators.required],
+      brand: [''],
       model: [''],
+      productCode: [''],
     });
 
     this.route.paramMap.subscribe((params: ParamMap) => {

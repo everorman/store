@@ -1,23 +1,33 @@
 <div class="basic-wrapper">
   <form [formGroup]="productForm">
     <mat-form-field>
-      <input matInput placeholder="ID" formControlName="id" />
+      <input matInput placeholder="Código" formControlName="productCode" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Title" formControlName="title" />
+      <input matInput placeholder="Nombre" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Stock" formControlName="stock" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Price" formControlName="price" />
+      <input
+        matInput
+        placeholder="Precio compra"
+        formControlName="purchasePrice"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Precio venta" formControlName="soldPrice" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Marca" formControlName="marca" />
+      <input matInput placeholder="Marca" formControlName="brand" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Model" formControlName="model" />
+      <input matInput placeholder="Modelo" formControlName="model" />
     </mat-form-field>
   </form>
   <button mat-raised-button (click)="save()" color="primary">Guardar</button>

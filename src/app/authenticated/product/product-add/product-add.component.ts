@@ -24,6 +24,7 @@ export class ProductAddComponent {
   ngOnInit() {
     this.productForm = this.formBuilder.group({
       title: ['', Validators.required],
+      stock: ['', Validators.required],
       purchasePrice: ['', Validators.required],
       soldPrice: ['', Validators.required],
       brand: [''],
