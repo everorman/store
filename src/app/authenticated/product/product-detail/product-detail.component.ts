@@ -34,20 +34,20 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       productCode: [''],
     });
 
-    this.route.paramMap.subscribe((params: ParamMap) => {
+    this.route.paramMap.subscribe(async (params: ParamMap) => {
       const id = params.get('id');
       if (!id) {
         this.router.navigate(['/app/product/list']);
         return;
       }
-      this.subscriber = this.productService
-        .getDetail(parseInt(id))
-        .pipe(
-          tap((res) => {
-            this.productForm.patchValue(res);
-          })
-        )
-        .subscribe();
+      try {
+        const product = await this.productService.getDetail(id);
+        this.productForm.patchValue(product);
+      } catch (err) {
+        console.log(err);
+        this.router.navigate(['/app/product/list']);
+        return;
+      }
     });
   }
 
