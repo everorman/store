@@ -22,8 +22,10 @@ export class ProductDataSource implements DataSource<Product> {
   }
 
   loadProduct() {
-    this.productService
-      .getAll()
-      .subscribe((products) => this.productSubject.next(products));
+    this.loadingService.loadingOn();
+    this.productService.getAll().subscribe((products) => {
+      this.loadingService.loadingOff();
+      this.productSubject.next(products);
+    });
   }
 }

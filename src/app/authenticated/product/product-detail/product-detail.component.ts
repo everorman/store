@@ -33,22 +33,27 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       model: [''],
       productCode: [''],
     });
-
+    this.loading.loadingOn();
     this.route.paramMap.subscribe(async (params: ParamMap) => {
       const id = params.get('id');
       if (!id) {
         this.router.navigate(['/app/product/list']);
         return;
       }
-      try {
-        const product = await this.productService.getDetail(id);
-        this.productForm.patchValue(product);
-      } catch (err) {
-        console.log(err);
-        this.router.navigate(['/app/product/list']);
-        return;
-      }
+
+      const productDetail = await this.getProductDetail(id);
+      this.productForm.patchValue(productDetail as Product);
     });
+  }
+
+  private async getProductDetail(id: string) {
+    try {
+      const product = await this.productService.getDetail(id);
+      this.loading.loadingOff();
+      return product;
+    } catch (err) {
+      return this.router.navigate(['/app/product/list']);
+    }
   }
 
   ngOnDestroy(): void {
