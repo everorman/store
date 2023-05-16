@@ -10,14 +10,13 @@ import { CustomMaterialModule } from './core/material.module';
 import { LoadingService } from './shared/loading/loading.service';
 import { MessagesService } from './shared/messages/messages.service';
 import { NavTopComponent } from './shared/nav-top/nav-top.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import { SharedModule } from './shared/shared.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 @NgModule({
-  declarations: [AppComponent, SigninComponent, NavTopComponent],
+  declarations: [AppComponent, NavTopComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

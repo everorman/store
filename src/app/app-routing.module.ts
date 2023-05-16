@@ -4,8 +4,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: SigninComponent,
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'app',
@@ -14,7 +14,7 @@ const routes: Routes = [
         (m) => m.AuthenticatedModule
       ),
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '', redirectTo: '/auth', pathMatch: 'full' }, // redirect to `first-component`
 ];
 
 @NgModule({
