@@ -6,9 +6,11 @@ import { CustomMaterialModule } from '../core/material.module';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [SigninComponent, AuthComponent],
+  declarations: [SigninComponent, AuthComponent, ProfileComponent, SignupComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
