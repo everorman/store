@@ -15,6 +15,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { connectAuthEmulator } from 'firebase/auth';
+import { connectFirestoreEmulator } from 'firebase/firestore';
 @NgModule({
   declarations: [AppComponent, NavTopComponent],
   imports: [
@@ -27,8 +29,18 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     FormsModule,
     SharedModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
+    provideAuth(() => {
+      const auth = getAuth();
+      connectAuthEmulator(auth, 'http://localhost:9099', {
+        disableWarnings: true,
+      });
+      return auth;
+    }),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      connectFirestoreEmulator(firestore, 'http://localhost', 9098);
+      return firestore;
+    }),
   ],
   providers: [LoadingService, MessagesService],
   bootstrap: [AppComponent],

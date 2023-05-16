@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "smartbit-dashboard"
+  },
+  "targets": {
+    "smartbit-dashboard": {
+      "hosting": {
+        "store": [
+          "smartbit-dashboard"
+        ]
+      }
+    }
   }
 }
