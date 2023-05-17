@@ -10,15 +10,29 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher,
+} from '@angular/material/core';
 
 @NgModule({
-  declarations: [SigninComponent, AuthComponent, ProfileComponent, SignupComponent, EmailVerificationComponent, ForgotPasswordComponent],
+  declarations: [
+    SigninComponent,
+    AuthComponent,
+    ProfileComponent,
+    SignupComponent,
+    EmailVerificationComponent,
+    ForgotPasswordComponent,
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule,
+  ],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
   ],
 })
 export class AuthModule {}
