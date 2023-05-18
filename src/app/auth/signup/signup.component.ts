@@ -5,10 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import {
-  emailMatchValidator,
-  passwordMatchValidator,
-} from '../../shared/validator/checkEqualInput';
+import { passwordMatchValidator } from '../../shared/validator/checkEqualInput';
 
 @Component({
   selector: 'app-signup',
@@ -55,7 +52,7 @@ export class SignupComponent implements OnInit {
         ]),
       },
       {
-        validators: [emailMatchValidator, passwordMatchValidator],
+        validator: passwordMatchValidator,
       }
     );
   }

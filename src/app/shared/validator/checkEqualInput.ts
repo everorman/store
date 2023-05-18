@@ -1,24 +1,31 @@
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
-export function emailMatchValidator(group: FormGroup) {
-  const email = group.get('email')?.value;
-  const confirmEmail = group.get('confirmEmail')?.value;
-  console.log(email, confirmEmail);
-  if (email === confirmEmail) {
-    return null; // los valores coinciden, no hay error
-  } else {
-    console.log('Error');
-    return { emailMismatch: true }; // los valores no coinciden, devuelve un objeto con un error llamado "emailMismatch"
+export function emailMatchValidator(control: AbstractControl): void | null {
+  const emailControl = control.get('email');
+  const confirmEmailControl = control.get('confirmEmail');
+
+  if (emailControl?.pristine || confirmEmailControl?.pristine) {
+    return null;
   }
+
+  if (emailControl?.value === confirmEmailControl?.value) {
+    return null;
+  }
+
+  confirmEmailControl?.setErrors({ emailMismatch: true });
 }
 
-export function passwordMatchValidator(group: FormGroup) {
-  const password = group.get('password')?.value;
-  const confirmPassword = group.get('confirmPassword')?.value;
+export function passwordMatchValidator(control: AbstractControl): void | null {
+  const passwordControl = control.get('password');
+  const confirmPasswordControl = control.get('confirmPassword');
 
-  if (password === confirmPassword) {
-    return null; // los valores coinciden, no hay error
-  } else {
-    return { passwordMismatch: true }; // los valores no coinciden, devuelve un objeto con un error llamado "passwordMismatch"
+  if (passwordControl?.pristine || confirmPasswordControl?.pristine) {
+    return null;
   }
+
+  if (passwordControl?.value === confirmPasswordControl?.value) {
+    return null;
+  }
+
+  confirmPasswordControl?.setErrors({ passwordMismatch: true });
 }
